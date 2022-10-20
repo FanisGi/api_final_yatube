@@ -34,7 +34,6 @@ class CommentViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
-        """Список комментариев под определным постом."""
         post = get_object_or_404(Post, id=self.kwargs.get('post_id'))
         return post.comments.all()
 
